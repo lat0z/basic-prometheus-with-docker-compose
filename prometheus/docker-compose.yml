@@ -4,11 +4,24 @@ services:
         image: 'prom:latest'
         ports:
             - "9090:9090"
+        build:
+            ./prometheus
     slave:
-        image: 'promslave:latest'
+        image: 'node:latest'
         ports:
             - "9100:9100"
+        build: 
+            ./node
     alertmanager:
-        image: 'promalertmanager:latest'
+        image: 'alertmanager:latest'
         ports:
             - "9093:9093"
+        build:
+            ./alertmanager
+    grafana:
+        image: 'grafana:latest'
+        ports:
+            - "3000:3000"
+        build:
+            ./grafana
+        
