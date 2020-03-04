@@ -1,0 +1,14 @@
+version: '3'
+services:
+    prometheus:
+        image: 'prom:latest'
+        ports:
+            - "9090:9090"
+    slave:
+        image: 'promslave:latest'
+        ports:
+            - "9100:9100"
+    alertmanager:
+        image: 'promalertmanager:latest'
+        ports:
+            - "9093:9093"
