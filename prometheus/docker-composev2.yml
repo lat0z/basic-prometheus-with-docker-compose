@@ -1,0 +1,17 @@
+version: '3'
+services:
+  prometheus:
+    image: 'prometheus:latest'
+    build: 
+      ./prometheus
+  alertmanager:
+    image: 'alertmanager:latest'
+    build:
+        ./alertmanager
+  nginx:
+    image: 'pnginx:latest'
+    ports:
+      - "80:80"
+      - "81:81"
+    build:
+      ./nginx
