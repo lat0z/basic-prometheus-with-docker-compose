@@ -1,0 +1,25 @@
+# my global config
+global:
+  scrape_interval: 10s
+  evaluation_interval: 15s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+      - targets:
+        - alertmanager:9093
+
+rule_files:
+  - rules.yml
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ["prometheus:9090"]
+  
+  - job_name: 'slave1'
+    static_configs:
+    - targets: ["slave:9100"]
+
+
+

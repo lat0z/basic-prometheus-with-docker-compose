@@ -1,0 +1,19 @@
+version: '3'
+services:
+  prometheus:
+    image: 'prometheus:latest'
+  alertmanager:
+    image: 'alertmanager:latest'
+    build:
+      ./alertmanager
+  grafana:
+    image: 'grafana:latest'
+    ports:
+      - "3000:3000"
+  nginx:
+    image: 'pnginx:latest'
+    ports:
+      - "80:80"
+      - "81:81"
+    build:
+      ./nginx
